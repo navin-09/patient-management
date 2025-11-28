@@ -9,9 +9,10 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Entity
 @Getter
 @Setter
+@Entity
+@Table(name="patient")
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
