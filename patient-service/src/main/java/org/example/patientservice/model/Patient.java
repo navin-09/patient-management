@@ -30,8 +30,8 @@ public class Patient {
     private String address;
 
     @NotNull
-    private LocalDate birthDate;
+    private LocalDate date_of_birth;
 
     @NotNull
-    private LocalDate registrationDate;
+    private LocalDate registered_date;
 }
