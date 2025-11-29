@@ -19,10 +19,19 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.badRequest().body(errors);
     }
+
+    @ExceptionHandler(PatientNotFoundException.class)
+    public ResponseEntity<Map<String,String>> handlePatientNotFoundException(PatientNotFoundException ex) {
+        log.warn("Patient not found {}", ex.getMessage());
+        Map<String, String> errors = new HashMap<>();
+        errors.put("message", "Patient not found");
+        return ResponseEntity.badRequest().body(errors);
+
+    }
     @ExceptionHandler(EmailAlreadyExistException.class)
     public ResponseEntity<Map<String,String>> handleEmailAlreadyExistException(EmailAlreadyExistException ex){
         log.warn("Email already exists {}",ex.getMessage());
-     Map<String, String> errors = new HashMap<>();
+        Map<String, String> errors = new HashMap<>();
         errors.put("message","Email already exists");
         return ResponseEntity.badRequest().body(errors);
     }
