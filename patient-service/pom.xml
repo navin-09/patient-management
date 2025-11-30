@@ -84,7 +84,7 @@
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>2.8.14</version>
         </dependency>
-        <!--GRPC -->
+
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-netty-shaded</artifactId>
@@ -117,7 +117,6 @@
             <version>4.29.1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka -->
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
