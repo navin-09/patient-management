@@ -1,11 +1,11 @@
 ### Creates a new patient entity
-POST http://localhost:4000/patients
+POST http://localhost:40004/api/patients
 Content-Type: application/json
 
 
 {
-"name": "John Doe Kafka Test10",
-"email": "kafka_test1110@example.com",
+"name": "John Doe Kafka Test109",
+"email": "kafka_test11109@example.com",
 "address": "123 main street22",
 "dateOfBirth": "1995-09-09",
 "registeredDate": "2024-11-28"
