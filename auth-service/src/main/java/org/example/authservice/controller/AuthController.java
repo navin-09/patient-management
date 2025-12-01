@@ -3,6 +3,8 @@ package org.example.authservice.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import org.example.authservice.dto.LoginRequestDTO;
 import org.example.authservice.dto.LoginRespsoneDTO;
+import org.example.authservice.service.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +16,10 @@ import java.util.Optional;
 
 @RestController
 public class AuthController {
+    @Autowired
+    private AuthService authService;
+
+
     @Operation(summary = "Generate Token on user login")
     @PostMapping("/login")
     public ResponseEntity<LoginRespsoneDTO> login(@RequestBody LoginRequestDTO loginRequestDTO) {
