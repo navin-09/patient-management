@@ -1,5 +1,6 @@
 package org.example.authservice.service;
 
+import io.jsonwebtoken.JwtException;
 import org.example.authservice.dto.LoginRequestDTO;
 import org.example.authservice.model.User;
 
@@ -26,5 +27,13 @@ public class AuthService {
                 .filter(u -> passwordEncoder.matches(loginRequestDTO.getPassword(),u.getPassword()))
                 .map(u -> jwtUtil.generateToken(u.getEmail(),u.getRole()));
         return token;
+    }
+    public boolean validateToken(String token) {
+        try {
+            jwtUtil.validateToken(token);
+            return true;
+        } catch (JwtException e){
+            return false;
+        }
     }
 }
