@@ -114,7 +114,7 @@ public class LocalStack extends Stack {
                 .vpc(vpc)
                 .instanceType(InstanceType.of(InstanceClass.BURSTABLE2, InstanceSize.MICRO))
                 .allocatedStorage(20)
-                .credentials(Credentials.fromGeneratedSecret("admin_user"))
+                .credentials(Credentials.fromGeneratedSecret("root"))
                 .databaseName(dbName)
                 .removalPolicy(RemovalPolicy.DESTROY)
                 .build();
@@ -137,10 +137,10 @@ public class LocalStack extends Stack {
         return CfnCluster.Builder
                 .create(this, "MskCluster")
                 .clusterName("kafka-cluster")
-                .kafkaVersion("2.8.0")
-                .numberOfBrokerNodes(1)
+                .kafkaVersion("3.5.1")
+                .numberOfBrokerNodes(2)
                 .brokerNodeGroupInfo(CfnCluster.BrokerNodeGroupInfoProperty.builder()
-                        .instanceType("kafka-m5-xlarge")
+                        .instanceType("kafka.t3.small")
                         .clientSubnets(vpc.getPrivateSubnets().stream()
                                 .map(ISubnet::getSubnetId)
                                 .collect(Collectors.toList()))
@@ -203,7 +203,7 @@ public class LocalStack extends Stack {
                     db.getDbInstanceEndpointPort(),
                     imageName
             ));
-            envVars.put("SPRING_DATASOURCE_USERNAME", "admin_user");
+            envVars.put("SPRING_DATASOURCE_USERNAME", "root");
             envVars.put("SPRING_DATASOURCE_PASSWORD",
                     db.getSecret().secretValueFromJson("password").toString());
             envVars.put("SPRING_JPA_HIBERNATE_DDL_AUTO", "update");

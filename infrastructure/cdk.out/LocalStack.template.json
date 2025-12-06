@@ -439,7 +439,7 @@
      "ExcludeCharacters": " %+~`#$&*()|[]{}:;<>?!'/@\"\\",
      "GenerateStringKey": "password",
      "PasswordLength": 30,
-     "SecretStringTemplate": "{\"username\":\"admin_user\"}"
+     "SecretStringTemplate": "{\"username\":\"root\"}"
     }
    },
    "UpdateReplacePolicy": "Delete",
@@ -481,7 +481,7 @@
       ]
      ]
     },
-    "MasterUsername": "admin_user",
+    "MasterUsername": "root",
     "StorageType": "gp2",
     "VPCSecurityGroups": [
      {
@@ -543,7 +543,7 @@
      "ExcludeCharacters": " %+~`#$&*()|[]{}:;<>?!'/@\"\\",
      "GenerateStringKey": "password",
      "PasswordLength": 30,
-     "SecretStringTemplate": "{\"username\":\"admin_user\"}"
+     "SecretStringTemplate": "{\"username\":\"root\"}"
     }
    },
    "UpdateReplacePolicy": "Delete",
@@ -585,7 +585,7 @@
       ]
      ]
     },
-    "MasterUsername": "admin_user",
+    "MasterUsername": "root",
     "StorageType": "gp2",
     "VPCSecurityGroups": [
      {
@@ -656,11 +656,11 @@
        "Ref": "PatientManagementVPCPrivateSubnet2Subnet8A2E409C"
       }
      ],
-     "InstanceType": "kafka-m5-xlarge"
+     "InstanceType": "kafka.t3.small"
     },
     "ClusterName": "kafka-cluster",
-    "KafkaVersion": "2.8.0",
-    "NumberOfBrokerNodes": 1
+    "KafkaVersion": "3.5.1",
+    "NumberOfBrokerNodes": 2
    }
   },
   "PatientManagementCluster98E10F8D": {
@@ -756,7 +756,7 @@
        },
        {
         "Name": "SPRING_DATASOURCE_USERNAME",
-        "Value": "admin_user"
+        "Value": "root"
        },
        {
         "Name": "SPRING_KAFKA_BOOTSTRAP_SERVERS",
@@ -1417,7 +1417,7 @@
        },
        {
         "Name": "SPRING_DATASOURCE_USERNAME",
-        "Value": "admin_user"
+        "Value": "root"
        },
        {
         "Name": "SPRING_KAFKA_BOOTSTRAP_SERVERS",

@@ -1,4 +1,4 @@
 ### Creates a new patient entity
-GET http://localhost:4004/api/patients
+GET http://lb-947c0f0b.elb.localhost.localstack.cloud:4004/api/patients
 Authorization: Bearer {{token}}
 #
